@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model="ir.actions.report" id="eduapp.session_from">
+            <field name="name">Report Session</field>
+            <field name="model">eduapp.session</field>
+            <field name="report_type">qweb-html</field>
+            <field name="report_name">eduapp.session_report_template</field>
+            <field name="report_file">eduapp.session_report_template</field>
+            <field name="binding_model_id" ref="eduapp.model_eduapp_session" />
+            <field name="binding_type">report</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,108 @@
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="incidencias.incidencias_tree">
+      <field name="name">incidencias.incidencias.tree</field>
+      <field name="model">incidencias.incidencias</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name" />
+          <field name="municipio" />
+          <field name="fecha" />
+          <field name="descripcion" />
+        </tree>
+      </field>
+    </record>
+    <record model="ir.ui.view" id="incidencias.incidencias_form">
+      <field name="name">incidencias.incidencias.form</field>
+      <field name="model">incidencias.incidencias</field>
+      <field name="arch" type="xml">
+        <form>
+          <group colspan="2" col="2">
+            <field name="name" />
+            <field name="municipio" />
+            <field name="cliente" />
+            <field name="fecha" />
+            <field name="descripcion" />
+          </group>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="incidencias.municipios_tree">
+      <field name="name">incidencias.municipios.tree</field>
+      <field name="model">incidencias.municipios</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name" />
+          <field name="habitantes" />
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="incidencias.municipios_form">
+      <field name="name">incidencias.municipios.form</field>
+      <field name="model">incidencias.municipios</field>
+      <field name="arch" type="xml">
+        <form>
+          <group colspan="2" col="2">
+            <field name="imagen" widget="image" height="120px" width="120px" />
+            <field name="name" />
+            <field name="habitantes" />
+            <field name="superficie" />
+            <field name="densidad_poblacion" groups="incidencias.grupo_operario"/>
+            <field name="incidencias">
+              <tree>
+                <field name="name" />
+                <field name="fecha" />
+                <field name="descripcion" />
+              </tree>
+           </field>
+          </group>
+          <div class="oe_chatter">
+            <field name='message_follower_ids' widget='mail_followers' groups ='base.group_user'/>
+            <field name="activity_ids" widget="mail_activity"/>
+            <field name="message_ids" widget="mail_thread"/>
+          </div>
+        </form>
+      </field>
+    </record>
+
+    <record id="res_partner_view_form_inherit_incidencias" model="ir.ui.view">
+      <field name="name">res.partner.view.form.inherit.incidencias</field>
+      <field name="model">res.partner</field>
+      <field name="inherit_id" ref="base.view_partner_form"></field>
+      <field name="arch" type="xml">
+        <xpath expr="//page[@name='internal_notes']" position="after">
+          <page string="incidencias" name="ficha_incidencias_clientes">
+            <field name="incidencias">
+              <tree>
+                <field name="name"></field>
+                <field name="fecha"></field>
+                <field name="municipio"></field>
+              </tree>
+            </field>
+          </page>
+
+        </xpath>
+      </field>
+
+    </record>
+
+    <record model="ir.actions.act_window" id="incidencias.incidencias_action_window">
+      <field name="name">Incidencias</field>
+      <field name="res_model">incidencias.incidencias</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="incidencias.municipios_action_window">
+      <field name="name">Municipios</field>
+      <field name="res_model">incidencias.municipios</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Incidencias" id="incidencias.menu_root" />
+    <menuitem name="Incidencias" id="incidencias.incidencias_menu" parent="incidencias.menu_root" />
+    <menuitem name="Incidencias" id="incidencias.incidencias_menu_incidencias" parent="incidencias.incidencias_menu" action="incidencias.incidencias_action_window" />
+    <menuitem name="Municipios" id="incidencias.incidencias_menu_municipios" parent="incidencias.incidencias_menu" action="incidencias.municipios_action_window" />
+  </data>
+</odoo>

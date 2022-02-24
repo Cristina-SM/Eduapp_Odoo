@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_eduapp_resources_gestor,eduapp.resources.gestor,model_eduapp_resources,eduapp.grupo_gestor,1,1,1,1
+access_eduapp_session_gestor,eduapp.session.gestor,model_eduapp_session,eduapp.grupo_gestor,1,1,1,1
+access_eduapp_files_gestor,eduapp.files.gestor,model_eduapp_files,eduapp.grupo_gestor,1,1,1,1
+access_eduapp_resources_student,eduapp.resources.gestor,model_eduapp_resources,eduapp.grupo_student,1,0,0,0
+access_eduapp_session_student,eduapp.session.gestor,model_eduapp_session,eduapp.grupo_student,1,0,0,0
+access_eduapp_files_student,eduapp.files.gestor,model_eduapp_files,eduapp.grupo_student,1,0,0,0

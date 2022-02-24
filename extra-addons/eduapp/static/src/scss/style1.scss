@@ -1,0 +1,25 @@
+.o_web_client, .o_main_navbar{
+    color: white !important;
+    background-color: rgb(168, 96, 235) !important;
+    font-family: "Consolas";
+
+}
+.o_main_navbar {
+    color: white !important;
+    background-color: rgb(168, 96, 235) !important;
+}
+.show, .dropdown-menu > *{
+    color: black !important;
+}
+.o_controller_with_searchpanel, .o_renderer_with_searchpanel{
+    background-color: white !important;
+
+}
+ .o_kanban_record{
+     color: black !important;
+    border:1px solid rgb(100, 100, 100) !important;
+    border-radius: 5px !important;
+}
+.o_form_view, .o_form_label {
+    color: black !important;
+}
